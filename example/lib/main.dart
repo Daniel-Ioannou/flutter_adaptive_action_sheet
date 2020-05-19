@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,13 +14,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+  const MyHomePage({Key key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -30,11 +31,21 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Adaptive action sheet example'),
+        title: const Text('Adaptive action sheet example'),
       ),
       body: Center(
-        child: Text(
-          'You have pushed the button this many times:',
+        child: RaisedButton(
+          onPressed: () {
+            showAdaptiveActionSheet(
+              context: context,
+              actions: <BottomSheetAction>[
+                BottomSheetAction(title: 'Item 1', onPressed: () {}),
+                BottomSheetAction(title: 'Item 2', onPressed: () {}),
+                BottomSheetAction(title: 'Item 3', onPressed: () {}),
+              ],
+            );
+          },
+          child: const Text('Show action sheet'),
         ),
       ),
     );
