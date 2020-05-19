@@ -1,14 +1,36 @@
-# adaptive_action_sheet (Under Development)
+# Adaptive action sheet (Developers Preview)
 
-A new Flutter package.
+A action bottom sheet that adapts to the platform (Android/iOS).
 
 ## Getting Started
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+ Add the package to your pubspec.yaml:
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+ ```yaml
+ adaptive_action_sheet: ^1.0.0
+ ```
+ 
+ In your dart file, import the library:
+
+ ```Dart
+import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
+ ``` 
+  Instead of using a `showModalBottomSheet` use `showAdaptiveActionSheet` Widget:
+
+  ```Dart
+showAdaptiveActionSheet(
+   context: context,
+   actions: <BottomSheetAction>[
+      BottomSheetAction(title: 'Item 1', onPressed: () {}),
+      BottomSheetAction(title: 'Item 2', onPressed: () {}),
+      BottomSheetAction(title: 'Item 3', onPressed: () {}),
+   ],
+);
+```
+
+### Parameters:
+#### showAdaptiveActionSheet:
+* `actions`: The Actions list that will appear on the ActionSheet. (required)
+#### BottomSheetAction:
+* `title`: The string that will appear in the title bar of the action item. (required)
+* `onPressed`: The callback that is called when the action item is tapped. (required)
