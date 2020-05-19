@@ -1,5 +1,4 @@
 library adaptive_action_sheet;
 
-class Calculator {
-  int addOne(int value) => value + 1;
-}
+export 'src/bottom_sheet_action.dart';
+export 'src/bottom_sheet_alert.dart';
