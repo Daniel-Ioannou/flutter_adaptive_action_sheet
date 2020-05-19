@@ -1,0 +1,11 @@
+include: package:lint/analysis_options.yaml
+
+linter:
+  rules:
+    avoid_print: false
+    avoid_escaping_inner_quotes: false
+    avoid_classes_with_only_static_members: false
+
+analyzer:
+  errors:
+    missing_required_param: error
