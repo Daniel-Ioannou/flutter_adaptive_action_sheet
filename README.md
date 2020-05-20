@@ -1,5 +1,7 @@
 # Adaptive action sheet (Developers Preview)
 
+[![pub package](https://img.shields.io/pub/v/adaptive_action_sheet.svg)](https://pub.dev/packages/adaptive_action_sheet)
+
 A action bottom sheet that adapts to the platform (Android/iOS).
 
 iOS | Android
