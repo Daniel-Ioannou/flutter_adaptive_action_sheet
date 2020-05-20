@@ -1,17 +1,19 @@
 # Adaptive action sheet (Developers Preview)
 
+[![pub package](https://img.shields.io/pub/v/adaptive_action_sheet.svg)](https://pub.dev/packages/adaptive_action_sheet)
+
 A action bottom sheet that adapts to the platform (Android/iOS).
 
 iOS | Android
 --- | ---
-<img width="520" alt="n1" src="https://github.com/Daniel-Ioannou/flutter_adaptive_action_sheet/blob/master/assets/ReadMe%20iOS%20Screenshot.png"> | <img width="497" alt="n2" src="https://github.com/Daniel-Ioannou/flutter_adaptive_action_sheet/blob/master/assets/ReadMe%20Android%20Screenshot.png">
+<img width="520" alt="n1" src="https://raw.githubusercontent.com/Daniel-Ioannou/flutter_adaptive_action_sheet/master/assets/ReadMe%20iOS%20Screenshot.png"> | <img width="497" alt="n2" src="https://raw.githubusercontent.com/Daniel-Ioannou/flutter_adaptive_action_sheet/master/assets/ReadMe%20Android%20Screenshot.png">
 
 ## Getting Started
 
  Add the package to your pubspec.yaml:
 
  ```yaml
- adaptive_action_sheet: ^1.0.0
+ adaptive_action_sheet: ^1.0.1
  ```
  
  In your dart file, import the library:
