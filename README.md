@@ -1,4 +1,4 @@
-# Adaptive action sheet (Developers Preview)
+# Adaptive action sheet
 
 [![pub package](https://img.shields.io/pub/v/adaptive_action_sheet.svg)](https://pub.dev/packages/adaptive_action_sheet)
 
