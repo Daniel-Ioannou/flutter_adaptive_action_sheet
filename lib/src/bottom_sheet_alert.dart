@@ -4,25 +4,32 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'bottom_sheet_action.dart';
+import 'cancel_action.dart';
 
 Future<T> showAdaptiveActionSheet<T>({
   BuildContext context,
   List<BottomSheetAction> actions,
+  CancelAction cancelAction,
 }) async {
-  return _show<T>(context, actions);
+  return _show<T>(context, actions, cancelAction);
 }
 
-Future<T> _show<T>(BuildContext context, List<BottomSheetAction> actions) {
+Future<T> _show<T>(
+  BuildContext context,
+  List<BottomSheetAction> actions,
+  CancelAction cancelAction,
+) {
   if (Platform.isIOS) {
-    return _showCupertinoBottomSheet(context, actions);
+    return _showCupertinoBottomSheet(context, actions, cancelAction);
   } else {
-    return _showMaterialBottomSheet(context, actions);
+    return _showMaterialBottomSheet(context, actions, cancelAction);
   }
 }
 
 Future<T> _showCupertinoBottomSheet<T>(
   BuildContext context,
   List<BottomSheetAction> actions,
+  CancelAction cancelAction,
 ) {
   final _textStyle = Theme.of(context).textTheme.headline6;
   return showModalBottomSheet<T>(
@@ -39,15 +46,16 @@ Future<T> _showCupertinoBottomSheet<T>(
             ),
           );
         }).toList(),
-        cancelButton: ListTile(
-          title: Center(
-            child: Text(
-              'Close',
-              style: _textStyle.copyWith(color: Colors.lightBlue),
-            ),
-          ),
-          onTap: () => Navigator.of(coxt).pop(),
-        ),
+        cancelButton: cancelAction != null
+            ? CupertinoActionSheetAction(
+                onPressed:
+                    cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
+                child: Text(
+                  cancelAction.title,
+                  style: _textStyle.copyWith(color: Colors.lightBlue),
+                ),
+              )
+            : null,
       );
     },
   );
@@ -56,6 +64,7 @@ Future<T> _showCupertinoBottomSheet<T>(
 Future<T> _showMaterialBottomSheet<T>(
   BuildContext context,
   List<BottomSheetAction> actions,
+  CancelAction cancelAction,
 ) {
   final _textStyle = Theme.of(context).textTheme.headline6;
   return showModalBottomSheet<T>(
@@ -89,15 +98,19 @@ Future<T> _showMaterialBottomSheet<T>(
               ),
             );
           }).toList(),
-          ListTile(
-            title: Center(
-              child: Text(
-                'Close',
-                style: _textStyle.copyWith(color: Colors.lightBlue),
+          if (cancelAction != null)
+            InkWell(
+              onTap: cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                    cancelAction.title,
+                    style: _textStyle.copyWith(color: Colors.lightBlue),
+                  ),
+                ),
               ),
             ),
-            onTap: () => Navigator.pop(coxt),
-          ),
         ],
       );
     },

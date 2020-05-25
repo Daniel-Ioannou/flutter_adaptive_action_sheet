@@ -1,3 +1,8 @@
+## [1.0.2] - 25 May 2020
+
+* Add options to customize cancel action.
+* UMake cancel action optional.
+
 ## [1.0.1] - 20 May 2020
 
 * Update documentation.

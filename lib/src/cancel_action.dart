@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class BottomSheetAction {
+class CancelAction {
   final String title;
   final VoidCallback onPressed;
 
-  BottomSheetAction({this.title, this.onPressed});
+  CancelAction({@required this.title, this.onPressed});
 }
