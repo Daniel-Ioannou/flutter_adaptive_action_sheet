@@ -46,13 +46,16 @@ Future<T> _showCupertinoBottomSheet<T>(
             ),
           );
         }).toList(),
-        cancelButton: CupertinoActionSheetAction(
-          onPressed: cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
-          child: Text(
-            cancelAction.title,
-            style: _textStyle.copyWith(color: Colors.lightBlue),
-          ),
-        ),
+        cancelButton: cancelAction != null
+            ? CupertinoActionSheetAction(
+                onPressed:
+                    cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
+                child: Text(
+                  cancelAction.title,
+                  style: _textStyle.copyWith(color: Colors.lightBlue),
+                ),
+              )
+            : null,
       );
     },
   );
@@ -95,18 +98,19 @@ Future<T> _showMaterialBottomSheet<T>(
               ),
             );
           }).toList(),
-          InkWell(
-            onTap: cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  cancelAction.title,
-                  style: _textStyle.copyWith(color: Colors.lightBlue),
+          if (cancelAction != null)
+            InkWell(
+              onTap: cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                    cancelAction.title,
+                    style: _textStyle.copyWith(color: Colors.lightBlue),
+                  ),
                 ),
               ),
             ),
-          ),
         ],
       );
     },
