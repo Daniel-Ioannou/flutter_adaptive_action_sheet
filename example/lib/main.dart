@@ -43,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 BottomSheetAction(title: 'Item 2', onPressed: () {}),
                 BottomSheetAction(title: 'Item 3', onPressed: () {}),
               ],
+              // cancelAction: CancelAction(title: 'Cancel'),
             );
           },
           child: const Text('Show action sheet'),
