@@ -1,3 +1,8 @@
+
+## [1.0.3] - 05 Jun 2020
+
+* Add required annotation for all the required parameters
+
 ## [1.0.2] - 25 May 2020
 
 * Add options to customize cancel action.
