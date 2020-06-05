@@ -7,10 +7,12 @@ import 'bottom_sheet_action.dart';
 import 'cancel_action.dart';
 
 Future<T> showAdaptiveActionSheet<T>({
-  BuildContext context,
-  List<BottomSheetAction> actions,
+  @required BuildContext context,
+  @required List<BottomSheetAction> actions,
   CancelAction cancelAction,
 }) async {
+  assert(context != null);
+  assert(actions != null);
   return _show<T>(context, actions, cancelAction);
 }
 
