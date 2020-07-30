@@ -88,14 +88,9 @@ Future<T> _showMaterialBottomSheet<T>(
               onTap: action.onPressed,
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      action.title,
-                      style: _textStyle,
-                    ),
-                  ],
+                child: Text(
+                  action.title,
+                  style: _textStyle,
                 ),
               ),
             );
