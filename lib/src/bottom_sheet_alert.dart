@@ -87,6 +87,7 @@ Future<T> _showMaterialBottomSheet<T>(
         ),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               ...actions.map<Widget>((action) {
@@ -97,6 +98,7 @@ Future<T> _showMaterialBottomSheet<T>(
                     child: Text(
                       action.title,
                       style: _textStyle,
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 );
