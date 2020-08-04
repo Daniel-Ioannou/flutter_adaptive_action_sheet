@@ -80,40 +80,46 @@ Future<T> _showMaterialBottomSheet<T>(
       ),
     ),
     builder: (BuildContext coxt) {
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          ...actions.map<Widget>((action) {
-            return InkWell(
-              onTap: action.onPressed,
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
+      final double screenHeight = MediaQuery.of(context).size.height;
+      return ConstrainedBox(
+        constraints: BoxConstraints(
+          maxHeight: screenHeight - (screenHeight / 10),
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ...actions.map<Widget>((action) {
+                return InkWell(
+                  onTap: action.onPressed,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
                       action.title,
                       style: _textStyle,
+                      textAlign: TextAlign.center,
                     ),
-                  ],
-                ),
-              ),
-            );
-          }).toList(),
-          if (cancelAction != null)
-            InkWell(
-              onTap: cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    cancelAction.title,
-                    style: _textStyle.copyWith(color: Colors.lightBlue),
+                  ),
+                );
+              }).toList(),
+              if (cancelAction != null)
+                InkWell(
+                  onTap:
+                      cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        cancelAction.title,
+                        style: _textStyle.copyWith(color: Colors.lightBlue),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-        ],
+            ],
+          ),
+        ),
       );
     },
   );
