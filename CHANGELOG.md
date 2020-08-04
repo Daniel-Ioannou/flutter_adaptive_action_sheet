@@ -1,4 +1,9 @@
 
+## [1.0.4] - 04 Aug 2020
+
+* Add scroll at material bottom sheet
+* Fix overflow at android action sheet
+
 ## [1.0.3] - 05 Jun 2020
 
 * Add required annotation for all the required parameters
