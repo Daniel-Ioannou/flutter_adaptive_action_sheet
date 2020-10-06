@@ -10,21 +10,26 @@ Future<T> showAdaptiveActionSheet<T>({
   @required BuildContext context,
   @required List<BottomSheetAction> actions,
   CancelAction cancelAction,
+  Color barrierColor,
+  Color bottomSheetColor,
 }) async {
   assert(context != null);
   assert(actions != null);
-  return _show<T>(context, actions, cancelAction);
+  assert(barrierColor != Colors.transparent, 'The barrier color cannot be transparent.');
+  return _show<T>(context, actions, cancelAction, barrierColor, bottomSheetColor);
 }
 
 Future<T> _show<T>(
   BuildContext context,
   List<BottomSheetAction> actions,
   CancelAction cancelAction,
+  Color barrierColor,
+  Color bottomSheetColor,
 ) {
   if (Platform.isIOS) {
-    return _showCupertinoBottomSheet(context, actions, cancelAction);
+    return _showCupertinoBottomSheet(context, actions, cancelAction, barrierColor, bottomSheetColor);
   } else {
-    return _showMaterialBottomSheet(context, actions, cancelAction);
+    return _showMaterialBottomSheet(context, actions, cancelAction, barrierColor, bottomSheetColor);
   }
 }
 
@@ -32,11 +37,14 @@ Future<T> _showCupertinoBottomSheet<T>(
   BuildContext context,
   List<BottomSheetAction> actions,
   CancelAction cancelAction,
+  Color bottomSheetColor,
+  Color barrierColor,
 ) {
   final _textStyle = Theme.of(context).textTheme.headline6;
   return showModalBottomSheet<T>(
     context: context,
-    backgroundColor: Colors.transparent,
+    backgroundColor: bottomSheetColor ?? Colors.transparent,
+    barrierColor: barrierColor,
     builder: (BuildContext coxt) {
       return CupertinoActionSheet(
         actions: actions.map((action) {
@@ -67,12 +75,16 @@ Future<T> _showMaterialBottomSheet<T>(
   BuildContext context,
   List<BottomSheetAction> actions,
   CancelAction cancelAction,
+  Color barrierColor,
+  Color bottomSheetColor,
 ) {
   final _textStyle = Theme.of(context).textTheme.headline6;
   return showModalBottomSheet<T>(
     context: context,
     elevation: 0,
     isScrollControlled: true,
+    backgroundColor: bottomSheetColor ?? Colors.white,
+    barrierColor: barrierColor,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(30),
