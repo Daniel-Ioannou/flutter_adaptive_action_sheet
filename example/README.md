@@ -13,7 +13,7 @@ iOS | Android
  Add the package to your pubspec.yaml:
 
  ```yaml
- adaptive_action_sheet: ^1.0.3
+ adaptive_action_sheet: ^1.0.5
  ```
  
  In your dart file, import the library:
@@ -39,6 +39,7 @@ showAdaptiveActionSheet(
 #### showAdaptiveActionSheet:
 * `actions`: The Actions list that will appear on the ActionSheet. (required)
 * `cancelAction`: The optional cancel button that show under the actions (grouped separately on iOS).
+*  The optional `backgroundColor` and `barrierColor` can be passed in to customize the appearance and behavior of persistent bottom sheets.
 
 #### BottomSheetAction:
 * `title`: The string that will appear in the title bar of the action item. (required)
