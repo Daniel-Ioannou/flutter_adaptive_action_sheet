@@ -1,5 +1,6 @@
 import 'package:adaptive_action_sheet/adaptive_action_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,19 +35,54 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('Adaptive action sheet example'),
       ),
       body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            showAdaptiveActionSheet(
-              context: context,
-              actions: <BottomSheetAction>[
-                BottomSheetAction(title: 'Item 1', onPressed: () {}),
-                BottomSheetAction(title: 'Item 2', onPressed: () {}),
-                BottomSheetAction(title: 'Item 3', onPressed: () {}),
-              ],
-              cancelAction: CancelAction(title: 'Cancel'),
-            );
-          },
-          child: const Text('Show action sheet'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            RaisedButton(
+              onPressed: () {
+                showAdaptiveActionSheet(
+                  context: context,
+                  actions: <BottomSheetAction>[
+                    BottomSheetAction(title: 'Item 1', onPressed: () {}),
+                    BottomSheetAction(title: 'Item 2', onPressed: () {}),
+                    BottomSheetAction(title: 'Item 3', onPressed: () {}),
+                  ],
+                  cancelAction: CancelAction(title: 'Cancel'),
+                );
+              },
+              child: const Text('Show action sheet'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                showAdaptiveActionSheet(
+                  context: context,
+                  bottomSheetColor: Colors.greenAccent,
+                  actions: <BottomSheetAction>[
+                    BottomSheetAction(title: 'Item 1', onPressed: () {}),
+                    BottomSheetAction(title: 'Item 2', onPressed: () {}),
+                    BottomSheetAction(title: 'Item 3', onPressed: () {}),
+                  ],
+                  cancelAction: CancelAction(title: 'Cancel'),
+                );
+              },
+              child: const Text('Show action sheet with custom sheet color'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                showAdaptiveActionSheet(
+                  context: context,
+                  barrierColor: Colors.greenAccent[200].withOpacity(0.5),
+                  actions: <BottomSheetAction>[
+                    BottomSheetAction(title: 'Item 1', onPressed: () {}),
+                    BottomSheetAction(title: 'Item 2', onPressed: () {}),
+                    BottomSheetAction(title: 'Item 3', onPressed: () {}),
+                  ],
+                  cancelAction: CancelAction(title: 'Cancel'),
+                );
+              },
+              child: const Text('Show action sheet with custom barrier color'),
+            ),
+          ],
         ),
       ),
     );
