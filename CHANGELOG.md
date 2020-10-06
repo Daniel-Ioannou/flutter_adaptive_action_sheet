@@ -1,3 +1,6 @@
+## [1.0.5] - 06 Oct 2020
+
+* Add option to customize colors via bottomSheetColor and barrierColor.
 
 ## [1.0.4] - 04 Aug 2020
 
