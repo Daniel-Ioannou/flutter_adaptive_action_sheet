@@ -8,6 +8,7 @@ import 'cancel_action.dart';
 
 Future<T> showAdaptiveActionSheet<T>({
   @required BuildContext context,
+  Widget title,
   @required List<BottomSheetAction> actions,
   CancelAction cancelAction,
   Color barrierColor,
@@ -16,25 +17,27 @@ Future<T> showAdaptiveActionSheet<T>({
   assert(context != null);
   assert(actions != null);
   assert(barrierColor != Colors.transparent, 'The barrier color cannot be transparent.');
-  return _show<T>(context, actions, cancelAction, barrierColor, bottomSheetColor);
+  return _show<T>(context, title, actions, cancelAction, barrierColor, bottomSheetColor);
 }
 
 Future<T> _show<T>(
   BuildContext context,
+  Widget title,
   List<BottomSheetAction> actions,
   CancelAction cancelAction,
   Color barrierColor,
   Color bottomSheetColor,
 ) {
   if (Platform.isIOS) {
-    return _showCupertinoBottomSheet(context, actions, cancelAction, barrierColor, bottomSheetColor);
+    return _showCupertinoBottomSheet(context, title, actions, cancelAction, barrierColor, bottomSheetColor);
   } else {
-    return _showMaterialBottomSheet(context, actions, cancelAction, barrierColor, bottomSheetColor);
+    return _showMaterialBottomSheet(context, title, actions, cancelAction, barrierColor, bottomSheetColor);
   }
 }
 
 Future<T> _showCupertinoBottomSheet<T>(
   BuildContext context,
+  Widget title,
   List<BottomSheetAction> actions,
   CancelAction cancelAction,
   Color bottomSheetColor,
@@ -47,6 +50,7 @@ Future<T> _showCupertinoBottomSheet<T>(
     barrierColor: barrierColor,
     builder: (BuildContext coxt) {
       return CupertinoActionSheet(
+        title: title,
         actions: actions.map((action) {
           return CupertinoActionSheetAction(
             onPressed: action.onPressed,
@@ -73,6 +77,7 @@ Future<T> _showCupertinoBottomSheet<T>(
 
 Future<T> _showMaterialBottomSheet<T>(
   BuildContext context,
+  Widget title,
   List<BottomSheetAction> actions,
   CancelAction cancelAction,
   Color barrierColor,
@@ -102,6 +107,10 @@ Future<T> _showMaterialBottomSheet<T>(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Center(child: title),
+              ),
               ...actions.map<Widget>((action) {
                 return InkWell(
                   onTap: action.onPressed,
