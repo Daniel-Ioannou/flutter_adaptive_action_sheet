@@ -82,6 +82,21 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: const Text('Show action sheet with custom barrier color'),
             ),
+            RaisedButton(
+              onPressed: () {
+                showAdaptiveActionSheet(
+                  context: context,
+                  title: const Text('This is the title'),
+                  actions: <BottomSheetAction>[
+                    BottomSheetAction(title: 'Item 1', onPressed: () {}),
+                    BottomSheetAction(title: 'Item 2', onPressed: () {}),
+                    BottomSheetAction(title: 'Item 3', onPressed: () {}),
+                  ],
+                  cancelAction: CancelAction(title: 'Cancel'),
+                );
+              },
+              child: const Text('Show action sheet with title'),
+            ),
           ],
         ),
       ),
