@@ -43,7 +43,7 @@ Future<T> _showCupertinoBottomSheet<T>(
   Color bottomSheetColor,
   Color barrierColor,
 ) {
-  final _textStyle = Theme.of(context).textTheme.headline6;
+  final defaultTextStyle = Theme.of(context).textTheme.headline6;
   return showModalBottomSheet<T>(
     context: context,
     backgroundColor: bottomSheetColor ?? Colors.transparent,
@@ -56,7 +56,7 @@ Future<T> _showCupertinoBottomSheet<T>(
             onPressed: action.onPressed,
             child: Text(
               action.title,
-              // style: _textStyle,
+              style: action.textStyle ?? defaultTextStyle,
             ),
           );
         }).toList(),
@@ -66,7 +66,7 @@ Future<T> _showCupertinoBottomSheet<T>(
                     cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
                 child: Text(
                   cancelAction.title,
-                  style: _textStyle.copyWith(color: Colors.lightBlue),
+                  style: defaultTextStyle.copyWith(color: Colors.lightBlue),
                 ),
               )
             : null,
@@ -83,7 +83,7 @@ Future<T> _showMaterialBottomSheet<T>(
   Color barrierColor,
   Color bottomSheetColor,
 ) {
-  final _textStyle = Theme.of(context).textTheme.headline6;
+  final defaultTextStyle = Theme.of(context).textTheme.headline6;
   return showModalBottomSheet<T>(
     context: context,
     elevation: 0,
@@ -118,7 +118,7 @@ Future<T> _showMaterialBottomSheet<T>(
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
                       action.title,
-                      style: _textStyle,
+                      style: action.textStyle ?? defaultTextStyle,
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -133,7 +133,7 @@ Future<T> _showMaterialBottomSheet<T>(
                       padding: const EdgeInsets.all(16.0),
                       child: Text(
                         cancelAction.title,
-                        style: _textStyle.copyWith(color: Colors.lightBlue),
+                        style: defaultTextStyle.copyWith(color: Colors.lightBlue),
                       ),
                     ),
                   ),
