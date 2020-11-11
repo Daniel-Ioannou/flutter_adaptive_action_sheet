@@ -66,7 +66,7 @@ Future<T> _showCupertinoBottomSheet<T>(
                     cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
                 child: Text(
                   cancelAction.title,
-                  style: defaultTextStyle.copyWith(color: Colors.lightBlue),
+                  style: cancelAction.textStyle ?? defaultTextStyle.copyWith(color: Colors.lightBlue),
                 ),
               )
             : null,
@@ -133,7 +133,7 @@ Future<T> _showMaterialBottomSheet<T>(
                       padding: const EdgeInsets.all(16.0),
                       child: Text(
                         cancelAction.title,
-                        style: defaultTextStyle.copyWith(color: Colors.lightBlue),
+                        style: cancelAction.textStyle ?? defaultTextStyle.copyWith(color: Colors.lightBlue),
                       ),
                     ),
                   ),

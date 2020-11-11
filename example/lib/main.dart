@@ -116,7 +116,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       textStyle: const TextStyle(color: Colors.red),
                     ),
                   ],
-                  cancelAction: CancelAction(title: 'Cancel'),
+                  cancelAction: CancelAction(
+                      title: 'Cancel (styled)',
+                      textStyle: const TextStyle(
+                        color: Colors.lightGreen,
+                        fontSize: 28
+                      )),
                 );
               },
               child: const Text('Show action sheet with custom text style'),
