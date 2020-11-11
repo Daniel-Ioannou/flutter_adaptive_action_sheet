@@ -56,36 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 showAdaptiveActionSheet(
                   context: context,
-                  bottomSheetColor: Colors.greenAccent,
-                  actions: <BottomSheetAction>[
-                    BottomSheetAction(title: 'Item 1', onPressed: () {}),
-                    BottomSheetAction(title: 'Item 2', onPressed: () {}),
-                    BottomSheetAction(title: 'Item 3', onPressed: () {}),
-                  ],
-                  cancelAction: CancelAction(title: 'Cancel'),
-                );
-              },
-              child: const Text('Show action sheet with custom sheet color'),
-            ),
-            RaisedButton(
-              onPressed: () {
-                showAdaptiveActionSheet(
-                  context: context,
-                  barrierColor: Colors.greenAccent[200].withOpacity(0.5),
-                  actions: <BottomSheetAction>[
-                    BottomSheetAction(title: 'Item 1', onPressed: () {}),
-                    BottomSheetAction(title: 'Item 2', onPressed: () {}),
-                    BottomSheetAction(title: 'Item 3', onPressed: () {}),
-                  ],
-                  cancelAction: CancelAction(title: 'Cancel'),
-                );
-              },
-              child: const Text('Show action sheet with custom barrier color'),
-            ),
-            RaisedButton(
-              onPressed: () {
-                showAdaptiveActionSheet(
-                  context: context,
                   title: const Text('This is the title'),
                   actions: <BottomSheetAction>[
                     BottomSheetAction(title: 'Item 1', onPressed: () {}),

@@ -1,3 +1,21 @@
+## [1.0.6] - 29 Oct 2020
+
+* Add optional `title` parameter and will be displayed as title in the action sheet.
+  ```Dart
+  showAdaptiveActionSheet(
+     context: context,
+     title: const Text('Title'),
+     actions: <BottomSheetAction>[
+        BottomSheetAction(title: 'Item 1', onPressed: () {}),
+        BottomSheetAction(title: 'Item 2', onPressed: () {}),
+     ],
+     cancelAction: CancelAction(title: 'Cancel'),// onPressed parameter is optional by default will dismiss the ActionSheet
+  );
+  ```
+  
+## [1.0.5] - 06 Oct 2020
+
+* Add option to customize colors via bottomSheetColor and barrierColor.
 
 ## [1.0.4] - 04 Aug 2020
 

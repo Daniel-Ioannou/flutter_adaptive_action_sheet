@@ -16,8 +16,19 @@ Future<T> showAdaptiveActionSheet<T>({
 }) async {
   assert(context != null);
   assert(actions != null);
-  assert(barrierColor != Colors.transparent, 'The barrier color cannot be transparent.');
-  return _show<T>(context, title, actions, cancelAction, barrierColor, bottomSheetColor);
+  assert(
+    barrierColor != Colors.transparent,
+    'The barrier color cannot be transparent.',
+  );
+
+  return _show<T>(
+    context,
+    title,
+    actions,
+    cancelAction,
+    barrierColor,
+    bottomSheetColor,
+  );
 }
 
 Future<T> _show<T>(
@@ -29,9 +40,23 @@ Future<T> _show<T>(
   Color bottomSheetColor,
 ) {
   if (Platform.isIOS) {
-    return _showCupertinoBottomSheet(context, title, actions, cancelAction, barrierColor, bottomSheetColor);
+    return _showCupertinoBottomSheet(
+      context,
+      title,
+      actions,
+      cancelAction,
+      barrierColor,
+      bottomSheetColor,
+    );
   } else {
-    return _showMaterialBottomSheet(context, title, actions, cancelAction, barrierColor, bottomSheetColor);
+    return _showMaterialBottomSheet(
+      context,
+      title,
+      actions,
+      cancelAction,
+      barrierColor,
+      bottomSheetColor,
+    );
   }
 }
 
