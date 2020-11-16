@@ -73,13 +73,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   context: context,
                   actions: <BottomSheetAction>[
                     BottomSheetAction(
-                        title: 'Font and color',
-                        onPressed: () {},
-                        textStyle: const TextStyle(
-                          fontSize: 50,
-                          color: Colors.lightGreen,
-                        )),
-                    BottomSheetAction(title: 'No style specified', onPressed: () {}),
+                      title: 'Font and color',
+                      onPressed: () {},
+                      textStyle: const TextStyle(
+                        fontSize: 25,
+                        color: Colors.blueAccent,
+                      ),
+                    ),
+                    BottomSheetAction(
+                      title: 'No style specified',
+                      onPressed: () {},
+                    ),
                     BottomSheetAction(
                       title: 'Color only',
                       onPressed: () {},
@@ -87,11 +91,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ],
                   cancelAction: CancelAction(
-                      title: 'Cancel (styled)',
-                      textStyle: const TextStyle(
-                        color: Colors.lightGreen,
-                        fontSize: 28
-                      )),
+                    title: 'Cancel (styled)',
+                    textStyle: const TextStyle(
+                      color: Colors.lightGreen,
+                      fontSize: 28,
+                    ),
+                  ),
                 );
               },
               child: const Text('Show action sheet with custom text style'),
