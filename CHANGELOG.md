@@ -1,3 +1,29 @@
+## [1.0.7] - 16 Nov 2020
+* Add optional `textStyle` parameter for each action.
+  ```Dart
+  showAdaptiveActionSheet(
+     context: context,
+     actions: <BottomSheetAction>[
+        BottomSheetAction(
+           title: 'Item 1', 
+           onPressed: () {}, 
+           textStyle: const TextStyle(
+              fontSize: 25,
+              color: Colors.blueAccent,
+           ),
+        ),
+        BottomSheetAction(title: 'Item 2', onPressed: () {}),
+     ],
+     cancelAction: CancelAction(// onPressed parameter is optional by default will dismiss the ActionSheet
+        title: 'Cancel', 
+        textStyle: const TextStyle(
+           fontSize: 25,
+           color: Colors.blueAccent,
+        ),
+     ),
+  );
+  ```
+
 ## [1.0.6] - 29 Oct 2020
 
 * Add optional `title` parameter and will be displayed as title in the action sheet.
