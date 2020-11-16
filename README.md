@@ -13,7 +13,7 @@ iOS | Android
  Add the package to your pubspec.yaml:
 
  ```yaml
- adaptive_action_sheet: ^1.0.6
+ adaptive_action_sheet: ^1.0.7
  ```
  
  In your dart file, import the library:
@@ -46,7 +46,9 @@ showAdaptiveActionSheet(
 #### BottomSheetAction:
 * `title`: The string that will appear in the title bar of the action item. (required)
 * `onPressed`: The callback that is called when the action item is tapped. (required)
+* `textStyle`: The TextStyle to use for the title text. (optional)
 
 #### CancelAction:
 * `title`: The string that will appear in the title bar of the cancel action. (required)
 * `onPressed`: The callback that is called when the action item is tapped. `onPressed` is optional by default will dismiss the Action Sheet.
+* `textStyle`: The TextStyle to use for the title text. (optional)
