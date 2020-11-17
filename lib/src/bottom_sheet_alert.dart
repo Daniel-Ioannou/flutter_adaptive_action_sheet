@@ -6,6 +6,17 @@ import 'package:flutter/material.dart';
 import 'bottom_sheet_action.dart';
 import 'cancel_action.dart';
 
+/// A action bottom sheet that adapts to the platform (Android/iOS).
+///
+/// [actions] The Actions list that will appear on the ActionSheet. (required)
+///
+/// [cancelAction] The optional cancel button that show under the
+/// actions (grouped separately on iOS).
+///
+/// [title] The optional title widget that show above the actions.
+///
+/// The optional [backgroundColor] and [barrierColor] can be passed in to
+/// customize the appearance and behavior of persistent bottom sheets.
 Future<T> showAdaptiveActionSheet<T>({
   @required BuildContext context,
   Widget title,
