@@ -8,7 +8,7 @@ class BottomSheetAction {
   BottomSheetAction({
     @required this.title,
     @required this.onPressed,
-    this.textStyle
+    this.textStyle,
   })  : assert(title != null),
         assert(onPressed != null);
 }
