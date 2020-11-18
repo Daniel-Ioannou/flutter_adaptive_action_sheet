@@ -14,7 +14,7 @@ dependencies:
   flutter:
     sdk: flutter
   adaptive_action_sheet:
-      path: ../
+    path: ../
 
 
 dev_dependencies:

@@ -1,3 +1,7 @@
+## [1.0.8] - 18 Nov 2020
+
+* Update documentation.
+
 ## [1.0.7] - 16 Nov 2020
 * Add optional `textStyle` parameter for each action.
   ```Dart
