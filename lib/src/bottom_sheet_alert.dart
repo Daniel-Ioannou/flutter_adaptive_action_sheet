@@ -56,8 +56,6 @@ Future<T> _show<T>(
       title,
       actions,
       cancelAction,
-      barrierColor,
-      bottomSheetColor,
     );
   } else {
     return _showMaterialBottomSheet(
@@ -76,14 +74,10 @@ Future<T> _showCupertinoBottomSheet<T>(
   Widget title,
   List<BottomSheetAction> actions,
   CancelAction cancelAction,
-  Color bottomSheetColor,
-  Color barrierColor,
 ) {
   final defaultTextStyle = Theme.of(context).textTheme.headline6;
-  return showModalBottomSheet<T>(
+  return showCupertinoModalPopup(
     context: context,
-    backgroundColor: bottomSheetColor ?? Colors.transparent,
-    barrierColor: barrierColor,
     builder: (BuildContext coxt) {
       return CupertinoActionSheet(
         title: title,
@@ -127,7 +121,9 @@ Future<T> _showMaterialBottomSheet<T>(
     context: context,
     elevation: 0,
     isScrollControlled: true,
-    backgroundColor: bottomSheetColor ?? sheetTheme?.modalBackgroundColor ?? sheetTheme?.backgroundColor,
+    backgroundColor: bottomSheetColor ??
+        sheetTheme?.modalBackgroundColor ??
+        sheetTheme?.backgroundColor,
     barrierColor: barrierColor,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
