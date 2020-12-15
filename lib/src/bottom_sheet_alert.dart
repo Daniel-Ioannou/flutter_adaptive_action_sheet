@@ -142,10 +142,12 @@ Future<T> _showMaterialBottomSheet<T>(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Center(child: title),
-              ),
+              if (title != null) ...[
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Center(child: title),
+                ),
+              ],
               ...actions.map<Widget>((action) {
                 return InkWell(
                   onTap: action.onPressed,
