@@ -121,11 +121,13 @@ Future<T> _showMaterialBottomSheet<T>(
   Color bottomSheetColor,
 ) {
   final defaultTextStyle = Theme.of(context).textTheme.headline6;
+  final BottomSheetThemeData sheetTheme = Theme.of(context).bottomSheetTheme;
+
   return showModalBottomSheet<T>(
     context: context,
     elevation: 0,
     isScrollControlled: true,
-    backgroundColor: bottomSheetColor ?? Colors.white,
+    backgroundColor: bottomSheetColor ?? sheetTheme?.modalBackgroundColor ?? sheetTheme?.backgroundColor,
     barrierColor: barrierColor,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
