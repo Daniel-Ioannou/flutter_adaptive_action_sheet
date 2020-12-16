@@ -56,8 +56,6 @@ Future<T> _show<T>(
       title,
       actions,
       cancelAction,
-      barrierColor,
-      bottomSheetColor,
     );
   } else {
     return _showMaterialBottomSheet(
@@ -76,14 +74,10 @@ Future<T> _showCupertinoBottomSheet<T>(
   Widget title,
   List<BottomSheetAction> actions,
   CancelAction cancelAction,
-  Color bottomSheetColor,
-  Color barrierColor,
 ) {
   final defaultTextStyle = Theme.of(context).textTheme.headline6;
-  return showModalBottomSheet<T>(
+  return showCupertinoModalPopup(
     context: context,
-    backgroundColor: bottomSheetColor ?? Colors.transparent,
-    barrierColor: barrierColor,
     builder: (BuildContext coxt) {
       return CupertinoActionSheet(
         title: title,
@@ -121,11 +115,15 @@ Future<T> _showMaterialBottomSheet<T>(
   Color bottomSheetColor,
 ) {
   final defaultTextStyle = Theme.of(context).textTheme.headline6;
+  final BottomSheetThemeData sheetTheme = Theme.of(context).bottomSheetTheme;
+
   return showModalBottomSheet<T>(
     context: context,
     elevation: 0,
     isScrollControlled: true,
-    backgroundColor: bottomSheetColor ?? Colors.white,
+    backgroundColor: bottomSheetColor ??
+        sheetTheme?.modalBackgroundColor ??
+        sheetTheme?.backgroundColor,
     barrierColor: barrierColor,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
@@ -144,10 +142,12 @@ Future<T> _showMaterialBottomSheet<T>(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Center(child: title),
-              ),
+              if (title != null) ...[
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Center(child: title),
+                ),
+              ],
               ...actions.map<Widget>((action) {
                 return InkWell(
                   onTap: action.onPressed,

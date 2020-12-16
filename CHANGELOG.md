@@ -1,3 +1,9 @@
+## [1.0.9] - 16 Dec 2020
+
+* [Android] Fix default material background color.
+* [Android] Fix the padding on the top if title not set.
+* [iOS] Use showCupertinoModalPopup instead of showModalBottomSheet
+
 ## [1.0.8] - 18 Nov 2020
 
 * Update documentation.
