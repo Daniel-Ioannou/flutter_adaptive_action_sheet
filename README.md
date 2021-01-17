@@ -13,7 +13,7 @@ iOS | Android
  Add the package to your pubspec.yaml:
 
  ```yaml
- adaptive_action_sheet: ^1.0.9
+ adaptive_action_sheet: ^1.0.10
  ```
  
  In your dart file, import the library:
