@@ -1,3 +1,7 @@
+## [1.0.10] - 17 Jan 2021
+
+* Support web platform 
+
 ## [1.0.9] - 16 Dec 2020
 
 * [Android] Fix default material background color.
