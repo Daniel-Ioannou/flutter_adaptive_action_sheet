@@ -1,7 +1,6 @@
-import 'package:universal_io/io.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:universal_io/io.dart';
 
 import 'bottom_sheet_action.dart';
 import 'cancel_action.dart';
@@ -84,9 +83,27 @@ Future<T> _showCupertinoBottomSheet<T>(
         actions: actions.map((action) {
           return CupertinoActionSheetAction(
             onPressed: action.onPressed,
-            child: Text(
-              action.title,
-              style: action.textStyle ?? defaultTextStyle,
+            child: Row(
+              children: [
+                if (action.leading != null) ...[
+                  action.leading,
+                  const SizedBox(width: 15),
+                ],
+                Expanded(
+                  child: Text(
+                    action.title,
+                    style: action.textStyle ?? defaultTextStyle,
+                    textAlign: action.textAlign ??
+                        (action.leading != null
+                            ? TextAlign.start
+                            : TextAlign.center),
+                  ),
+                ),
+                if (action.trailing != null) ...[
+                  const SizedBox(width: 10),
+                  action.trailing,
+                ],
+              ],
             ),
           );
         }).toList(),
@@ -153,10 +170,27 @@ Future<T> _showMaterialBottomSheet<T>(
                   onTap: action.onPressed,
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      action.title,
-                      style: action.textStyle ?? defaultTextStyle,
-                      textAlign: TextAlign.center,
+                    child: Row(
+                      children: [
+                        if (action.leading != null) ...[
+                          action.leading,
+                          const SizedBox(width: 15),
+                        ],
+                        Expanded(
+                          child: Text(
+                            action.title,
+                            style: action.textStyle ?? defaultTextStyle,
+                            textAlign: action.textAlign ??
+                                (action.leading != null
+                                    ? TextAlign.start
+                                    : TextAlign.center),
+                          ),
+                        ),
+                        if (action.trailing != null) ...[
+                          const SizedBox(width: 10),
+                          action.trailing,
+                        ],
+                      ],
                     ),
                   ),
                 );
