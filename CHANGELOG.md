@@ -1,3 +1,30 @@
+## [1.0.11] - 20 Jan 2021
+
+* Add options for leading and trailing widget
+* Add options for text align
+  ```Dart
+  showAdaptiveActionSheet(
+    context: context,
+    actions: <BottomSheetAction>[
+      BottomSheetAction(
+        title: 'Add',
+        onPressed: () {},
+        leading: const Icon(
+          Icons.add,
+          size: 25,
+        ),
+        trailing: const Icon(
+          Icons.delete,
+          size: 25,
+          color: Colors.red,
+        ),
+        textAlign: TextAlign.start,
+      ),        
+    ],
+    cancelAction: CancelAction(title: 'Cancel'),
+  );
+  ```
+  
 ## [1.0.10] - 17 Jan 2021
 
 * Support web platform 
