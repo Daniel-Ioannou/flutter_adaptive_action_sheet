@@ -13,7 +13,7 @@ iOS | Android
  Add the package to your pubspec.yaml:
 
  ```yaml
- adaptive_action_sheet: ^1.0.10
+ adaptive_action_sheet: ^1.0.11
  ```
  
  In your dart file, import the library:
@@ -47,6 +47,9 @@ showAdaptiveActionSheet(
 * `title`: The string that will appear in the title bar of the action item. (required)
 * `onPressed`: The callback that is called when the action item is tapped. (required)
 * `textStyle`: The TextStyle to use for the title text. (optional)
+* `textAlign`: How the title should be aligned horizontally. (optional)
+* `leading`: A widget to display before the title. Typically an Icon widget. (optional)
+* `trailing`: A widget to display after the title. Typically an Icon or a CircleAvatar widget. (optional)
 
 #### CancelAction:
 * `title`: The string that will appear in the title bar of the cancel action. (required)

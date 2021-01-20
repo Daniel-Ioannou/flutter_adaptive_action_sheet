@@ -73,33 +73,38 @@ class _MyHomePageState extends State<MyHomePage> {
                   context: context,
                   actions: <BottomSheetAction>[
                     BottomSheetAction(
-                      title: 'Font and color',
+                      title: 'Add',
                       onPressed: () {},
+                      leading: const Icon(
+                        Icons.add,
+                        size: 25,
+                      ),
                       textStyle: const TextStyle(
-                        fontSize: 25,
-                        color: Colors.blueAccent,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                     BottomSheetAction(
-                      title: 'No style specified',
+                      title: 'Delete',
                       onPressed: () {},
-                    ),
-                    BottomSheetAction(
-                      title: 'Color only',
-                      onPressed: () {},
-                      textStyle: const TextStyle(color: Colors.red),
+                      textStyle: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.red,
+                      ),
+                      leading: const Icon(
+                        Icons.delete,
+                        size: 25,
+                        color: Colors.red,
+                      ),
                     ),
                   ],
                   cancelAction: CancelAction(
-                    title: 'Cancel (styled)',
-                    textStyle: const TextStyle(
-                      color: Colors.lightGreen,
-                      fontSize: 28,
-                    ),
+                    title: 'Cancel',
                   ),
                 );
               },
-              child: const Text('Show action sheet with custom text style'),
+              child: const Text('Show action sheet with icons'),
             ),
           ],
         ),
