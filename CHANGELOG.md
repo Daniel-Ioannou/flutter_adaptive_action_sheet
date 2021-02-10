@@ -1,3 +1,7 @@
+## [1.0.12] - 10 Feb 2021
+
+*  Fix issues when trailing or leading widget require a Material widget ancestor.
+
 ## [1.0.11] - 20 Jan 2021
 
 * Add options for leading and trailing widget

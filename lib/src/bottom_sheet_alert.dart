@@ -81,29 +81,35 @@ Future<T> _showCupertinoBottomSheet<T>(
       return CupertinoActionSheet(
         title: title,
         actions: actions.map((action) {
-          return CupertinoActionSheetAction(
-            onPressed: action.onPressed,
-            child: Row(
-              children: [
-                if (action.leading != null) ...[
-                  action.leading,
-                  const SizedBox(width: 15),
-                ],
-                Expanded(
-                  child: Text(
-                    action.title,
-                    style: action.textStyle ?? defaultTextStyle,
-                    textAlign: action.textAlign ??
-                        (action.leading != null
-                            ? TextAlign.start
-                            : TextAlign.center),
+          /// Modal Popup doesn't inherited material widget
+          /// so need to provide one in case trailing or
+          /// leading widget require a Material widget ancestor.
+          return Material(
+            color: Colors.transparent,
+            child: CupertinoActionSheetAction(
+              onPressed: action.onPressed,
+              child: Row(
+                children: [
+                  if (action.leading != null) ...[
+                    action.leading,
+                    const SizedBox(width: 15),
+                  ],
+                  Expanded(
+                    child: Text(
+                      action.title,
+                      style: action.textStyle ?? defaultTextStyle,
+                      textAlign: action.textAlign ??
+                          (action.leading != null
+                              ? TextAlign.start
+                              : TextAlign.center),
+                    ),
                   ),
-                ),
-                if (action.trailing != null) ...[
-                  const SizedBox(width: 10),
-                  action.trailing,
+                  if (action.trailing != null) ...[
+                    const SizedBox(width: 10),
+                    action.trailing,
+                  ],
                 ],
-              ],
+              ),
             ),
           );
         }).toList(),
