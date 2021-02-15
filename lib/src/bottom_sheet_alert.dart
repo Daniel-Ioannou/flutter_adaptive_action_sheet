@@ -81,6 +81,7 @@ Future<T> _showCupertinoBottomSheet<T>(
       return CupertinoActionSheet(
         title: title,
         actions: actions.map((action) {
+          // ListTile(title: ,)
           /// Modal Popup doesn't inherited material widget
           /// so need to provide one in case trailing or
           /// leading widget require a Material widget ancestor.
@@ -95,15 +96,23 @@ Future<T> _showCupertinoBottomSheet<T>(
                     const SizedBox(width: 15),
                   ],
                   Expanded(
-                    child: Text(
-                      action.title,
-                      style: action.textStyle ?? defaultTextStyle,
-                      textAlign: action.textAlign ??
-                          (action.leading != null
-                              ? TextAlign.start
-                              : TextAlign.center),
-                    ),
-                  ),
+                      child: DefaultTextStyle(
+                    style: defaultTextStyle,
+                    textAlign: action.leading != null
+                        ? TextAlign.start
+                        : TextAlign.center,
+                    child: action.title,
+                  )
+
+                      // Text(
+                      //           action.title,
+                      //           style: action.textStyle ?? defaultTextStyle,
+                      //           textAlign: action.textAlign ??
+                      //               (action.leading != null
+                      //                   ? TextAlign.start
+                      //                   : TextAlign.center),
+                      //         ),
+                      ),
                   if (action.trailing != null) ...[
                     const SizedBox(width: 10),
                     action.trailing,
@@ -183,14 +192,21 @@ Future<T> _showMaterialBottomSheet<T>(
                           const SizedBox(width: 15),
                         ],
                         Expanded(
-                          child: Text(
-                            action.title,
-                            style: action.textStyle ?? defaultTextStyle,
-                            textAlign: action.textAlign ??
-                                (action.leading != null
-                                    ? TextAlign.start
-                                    : TextAlign.center),
+                          child: DefaultTextStyle(
+                            style: defaultTextStyle,
+                            textAlign: action.leading != null
+                                ? TextAlign.start
+                                : TextAlign.center,
+                            child: action.title,
                           ),
+                          // Text(
+                          //   action.title,
+                          //   style: action.textStyle ?? defaultTextStyle,
+                          //   textAlign: action.textAlign ??
+                          //       (action.leading != null
+                          //           ? TextAlign.start
+                          //           : TextAlign.center),
+                          // ),
                         ),
                         if (action.trailing != null) ...[
                           const SizedBox(width: 10),

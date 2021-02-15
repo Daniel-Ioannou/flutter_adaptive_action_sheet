@@ -43,9 +43,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 showAdaptiveActionSheet(
                   context: context,
                   actions: <BottomSheetAction>[
-                    BottomSheetAction(title: 'Item 1', onPressed: () {}),
-                    BottomSheetAction(title: 'Item 2', onPressed: () {}),
-                    BottomSheetAction(title: 'Item 3', onPressed: () {}),
+                    BottomSheetAction(
+                      title: const Text('Item 1'),
+                      onPressed: () {},
+                    ),
+                    BottomSheetAction(
+                      title: const Text('Item 2'),
+                      onPressed: () {},
+                    ),
+                    BottomSheetAction(
+                      title: const Text('Item 3'),
+                      onPressed: () {},
+                    ),
                   ],
                   cancelAction: CancelAction(title: 'Cancel'),
                 );
@@ -58,9 +67,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   context: context,
                   title: const Text('This is the title'),
                   actions: <BottomSheetAction>[
-                    BottomSheetAction(title: 'Item 1', onPressed: () {}),
-                    BottomSheetAction(title: 'Item 2', onPressed: () {}),
-                    BottomSheetAction(title: 'Item 3', onPressed: () {}),
+                    BottomSheetAction(
+                      title: const Text('Item 1'),
+                      onPressed: () {},
+                    ),
+                    BottomSheetAction(
+                      title: const Text('Item 2'),
+                      onPressed: () {},
+                    ),
+                    BottomSheetAction(
+                      title: const Text('Item 3'),
+                      onPressed: () {},
+                    ),
                   ],
                   cancelAction: CancelAction(title: 'Cancel'),
                 );
@@ -73,25 +91,26 @@ class _MyHomePageState extends State<MyHomePage> {
                   context: context,
                   actions: <BottomSheetAction>[
                     BottomSheetAction(
-                      title: 'Add',
+                      title: const Text(
+                        'Add',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
                       onPressed: () {},
-                      leading: const Icon(
-                        Icons.add,
-                        size: 25,
-                      ),
-                      textStyle: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      leading: const Icon(Icons.add, size: 25),
                     ),
                     BottomSheetAction(
-                      title: 'Delete',
-                      onPressed: () {},
-                      textStyle: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.red,
+                      title: const Text(
+                        'Delete',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.red,
+                        ),
                       ),
+                      onPressed: () {},
                       leading: const Icon(
                         Icons.delete,
                         size: 25,
