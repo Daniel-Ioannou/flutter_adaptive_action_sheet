@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       onPressed: () {},
                     ),
                   ],
-                  cancelAction: CancelAction(title: 'Cancel'),
+                  cancelAction: CancelAction(title: const Text('Cancel')),
                 );
               },
               child: const Text('Show action sheet'),
@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       onPressed: () {},
                     ),
                   ],
-                  cancelAction: CancelAction(title: 'Cancel'),
+                  cancelAction: CancelAction(title: const Text('Cancel')),
                 );
               },
               child: const Text('Show action sheet with title'),
@@ -119,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ],
                   cancelAction: CancelAction(
-                    title: 'Cancel',
+                    title: const Text('Cancel'),
                   ),
                 );
               },

@@ -96,23 +96,14 @@ Future<T> _showCupertinoBottomSheet<T>(
                     const SizedBox(width: 15),
                   ],
                   Expanded(
-                      child: DefaultTextStyle(
-                    style: defaultTextStyle,
-                    textAlign: action.leading != null
-                        ? TextAlign.start
-                        : TextAlign.center,
-                    child: action.title,
-                  )
-
-                      // Text(
-                      //           action.title,
-                      //           style: action.textStyle ?? defaultTextStyle,
-                      //           textAlign: action.textAlign ??
-                      //               (action.leading != null
-                      //                   ? TextAlign.start
-                      //                   : TextAlign.center),
-                      //         ),
-                      ),
+                    child: DefaultTextStyle(
+                      style: defaultTextStyle,
+                      textAlign: action.leading != null
+                          ? TextAlign.start
+                          : TextAlign.center,
+                      child: action.title,
+                    ),
+                  ),
                   if (action.trailing != null) ...[
                     const SizedBox(width: 10),
                     action.trailing,
@@ -126,10 +117,10 @@ Future<T> _showCupertinoBottomSheet<T>(
             ? CupertinoActionSheetAction(
                 onPressed:
                     cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
-                child: Text(
-                  cancelAction.title,
-                  style: cancelAction.textStyle ??
-                      defaultTextStyle.copyWith(color: Colors.lightBlue),
+                child: DefaultTextStyle(
+                  style: defaultTextStyle.copyWith(color: Colors.lightBlue),
+                  textAlign: TextAlign.center,
+                  child: cancelAction.title,
                 ),
               )
             : null,
@@ -199,14 +190,6 @@ Future<T> _showMaterialBottomSheet<T>(
                                 : TextAlign.center,
                             child: action.title,
                           ),
-                          // Text(
-                          //   action.title,
-                          //   style: action.textStyle ?? defaultTextStyle,
-                          //   textAlign: action.textAlign ??
-                          //       (action.leading != null
-                          //           ? TextAlign.start
-                          //           : TextAlign.center),
-                          // ),
                         ),
                         if (action.trailing != null) ...[
                           const SizedBox(width: 10),
@@ -224,10 +207,11 @@ Future<T> _showMaterialBottomSheet<T>(
                   child: Center(
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        cancelAction.title,
-                        style: cancelAction.textStyle ??
+                      child: DefaultTextStyle(
+                        style:
                             defaultTextStyle.copyWith(color: Colors.lightBlue),
+                        textAlign: TextAlign.center,
+                        child: cancelAction.title,
                       ),
                     ),
                   ),
