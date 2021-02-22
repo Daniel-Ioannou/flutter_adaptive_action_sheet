@@ -13,7 +13,7 @@ iOS | Android
  Add the package to your pubspec.yaml:
 
  ```yaml
- adaptive_action_sheet: ^1.0.12
+ adaptive_action_sheet: ^1.1.0
  ```
  
  In your dart file, import the library:
@@ -28,11 +28,11 @@ showAdaptiveActionSheet(
    context: context,
    title: const Text('Title'),
    actions: <BottomSheetAction>[
-      BottomSheetAction(title: 'Item 1', onPressed: () {}),
-      BottomSheetAction(title: 'Item 2', onPressed: () {}),
-      BottomSheetAction(title: 'Item 3', onPressed: () {}),
+      BottomSheetAction(title: const Text('Item 1'), onPressed: () {}),
+      BottomSheetAction(title: const Text('Item 2'), onPressed: () {}),
+      BottomSheetAction(title: const Text('Item 3'), onPressed: () {}),
    ],
-   cancelAction: CancelAction(title: 'Cancel'),// onPressed parameter is optional by default will dismiss the ActionSheet
+   cancelAction: CancelAction(title: const Text('Cancel')),// onPressed parameter is optional by default will dismiss the ActionSheet
 );
 ```
 
@@ -44,7 +44,7 @@ showAdaptiveActionSheet(
 *  The optional `backgroundColor` and `barrierColor` can be passed in to customize the appearance and behavior of persistent material bottom sheets(Android only).
 
 #### BottomSheetAction:
-* `title`: The string that will appear in the title bar of the action item. (required)
+* `title`: The primary content of the action sheet item. (required)
 * `onPressed`: The callback that is called when the action item is tapped. (required)
 * `textStyle`: The TextStyle to use for the title text. (optional)
 * `textAlign`: How the title should be aligned horizontally. (optional)
@@ -52,6 +52,6 @@ showAdaptiveActionSheet(
 * `trailing`: A widget to display after the title. Typically an Icon or a CircleAvatar widget. (optional)
 
 #### CancelAction:
-* `title`: The string that will appear in the title bar of the cancel action. (required)
+* `title`: The primary content of the cancel action sheet item. (required)
 * `onPressed`: The callback that is called when the action item is tapped. `onPressed` is optional by default will dismiss the Action Sheet.
 * `textStyle`: The TextStyle to use for the title text. (optional)
