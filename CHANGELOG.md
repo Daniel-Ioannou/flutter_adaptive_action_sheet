@@ -1,3 +1,46 @@
+## [1.1.0] - 22 Feb 2021
+
+ #### Breaking change:
+ * Change `title` type from String to Widget
+ <table>
+  <tr>
+   <th>Version 1.1.0 or later</th>
+   <th>Version 1.0.12 or earlier</th>
+  </tr>
+  <tr>
+   <td>
+     
+  ```Dart
+    BottomSheetAction(
+      title: const Text(
+        'Title',
+        style: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+      onPressed: () {},
+      leading: const Icon(Icons.add, size: 25),
+    ),
+   ```
+   </td>
+   <td>
+   
+   ```Dart
+    BottomSheetAction(
+      title: 'Title',
+      textStyle: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w500,
+      ),
+      onPressed: () {},
+      leading: const Icon(Icons.add, size: 25),
+    ),
+   ```
+   </td>
+  </tr>
+ </table>
+
 ## [1.0.12] - 10 Feb 2021
 
 *  Fix issues when trailing or leading widget require a Material widget ancestor.

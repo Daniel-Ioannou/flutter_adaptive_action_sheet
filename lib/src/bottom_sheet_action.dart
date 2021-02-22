@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 
 /// The Actions model that will use on the ActionSheet.
 class BottomSheetAction {
-  /// The string that will appear in the title bar of the action item. (required)
-  final String title;
+  /// The primary content of the action sheet.
+  ///
+  /// Typically a [Text] widget.
+  ///
+  /// This should not wrap. To enforce the single line limit, use
+  /// [Text.maxLines].
+  final Widget title;
 
   /// The callback that is called when the action item is tapped. (required)
   final VoidCallback onPressed;
-
-  /// The TextStyle to use for the title text. (optional)
-  final TextStyle textStyle;
-
-  /// How the title should be aligned horizontally.
-  final TextAlign textAlign;
 
   /// A widget to display after the title.
   ///
@@ -27,8 +26,6 @@ class BottomSheetAction {
   BottomSheetAction({
     @required this.title,
     @required this.onPressed,
-    this.textStyle,
-    this.textAlign,
     this.trailing,
     this.leading,
   })  : assert(title != null),

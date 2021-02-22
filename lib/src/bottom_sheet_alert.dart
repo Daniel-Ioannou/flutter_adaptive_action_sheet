@@ -81,6 +81,7 @@ Future<T> _showCupertinoBottomSheet<T>(
       return CupertinoActionSheet(
         title: title,
         actions: actions.map((action) {
+          // ListTile(title: ,)
           /// Modal Popup doesn't inherited material widget
           /// so need to provide one in case trailing or
           /// leading widget require a Material widget ancestor.
@@ -95,13 +96,12 @@ Future<T> _showCupertinoBottomSheet<T>(
                     const SizedBox(width: 15),
                   ],
                   Expanded(
-                    child: Text(
-                      action.title,
-                      style: action.textStyle ?? defaultTextStyle,
-                      textAlign: action.textAlign ??
-                          (action.leading != null
-                              ? TextAlign.start
-                              : TextAlign.center),
+                    child: DefaultTextStyle(
+                      style: defaultTextStyle,
+                      textAlign: action.leading != null
+                          ? TextAlign.start
+                          : TextAlign.center,
+                      child: action.title,
                     ),
                   ),
                   if (action.trailing != null) ...[
@@ -117,10 +117,10 @@ Future<T> _showCupertinoBottomSheet<T>(
             ? CupertinoActionSheetAction(
                 onPressed:
                     cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
-                child: Text(
-                  cancelAction.title,
-                  style: cancelAction.textStyle ??
-                      defaultTextStyle.copyWith(color: Colors.lightBlue),
+                child: DefaultTextStyle(
+                  style: defaultTextStyle.copyWith(color: Colors.lightBlue),
+                  textAlign: TextAlign.center,
+                  child: cancelAction.title,
                 ),
               )
             : null,
@@ -183,13 +183,12 @@ Future<T> _showMaterialBottomSheet<T>(
                           const SizedBox(width: 15),
                         ],
                         Expanded(
-                          child: Text(
-                            action.title,
-                            style: action.textStyle ?? defaultTextStyle,
-                            textAlign: action.textAlign ??
-                                (action.leading != null
-                                    ? TextAlign.start
-                                    : TextAlign.center),
+                          child: DefaultTextStyle(
+                            style: defaultTextStyle,
+                            textAlign: action.leading != null
+                                ? TextAlign.start
+                                : TextAlign.center,
+                            child: action.title,
                           ),
                         ),
                         if (action.trailing != null) ...[
@@ -208,10 +207,11 @@ Future<T> _showMaterialBottomSheet<T>(
                   child: Center(
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        cancelAction.title,
-                        style: cancelAction.textStyle ??
+                      child: DefaultTextStyle(
+                        style:
                             defaultTextStyle.copyWith(color: Colors.lightBlue),
+                        textAlign: TextAlign.center,
+                        child: cancelAction.title,
                       ),
                     ),
                   ),
