@@ -46,12 +46,9 @@ showAdaptiveActionSheet(
 #### BottomSheetAction:
 * `title`: The primary content of the action sheet item. (required)
 * `onPressed`: The callback that is called when the action item is tapped. (required)
-* `textStyle`: The TextStyle to use for the title text. (optional)
-* `textAlign`: How the title should be aligned horizontally. (optional)
 * `leading`: A widget to display before the title. Typically an Icon widget. (optional)
 * `trailing`: A widget to display after the title. Typically an Icon or a CircleAvatar widget. (optional)
 
 #### CancelAction:
 * `title`: The primary content of the cancel action sheet item. (required)
 * `onPressed`: The callback that is called when the action item is tapped. `onPressed` is optional by default will dismiss the Action Sheet.
-* `textStyle`: The TextStyle to use for the title text. (optional)
