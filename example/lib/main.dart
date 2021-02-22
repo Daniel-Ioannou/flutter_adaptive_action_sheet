@@ -118,9 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ],
-                  cancelAction: CancelAction(
-                    title: const Text('Cancel'),
-                  ),
+                  cancelAction: CancelAction(title: const Text('Cancel')),
                 );
               },
               child: const Text('Show action sheet with icons'),
