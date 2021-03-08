@@ -28,6 +28,5 @@ class BottomSheetAction {
     required this.onPressed,
     this.trailing,
     this.leading,
-  })  : assert(title != null),
-        assert(onPressed != null);
+  });
 }

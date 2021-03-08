@@ -24,8 +24,6 @@ Future<T?> showAdaptiveActionSheet<T>({
   Color? barrierColor,
   Color? bottomSheetColor,
 }) async {
-  assert(context != null);
-  assert(actions != null);
   assert(
     barrierColor != Colors.transparent,
     'The barrier color cannot be transparent.',
@@ -145,8 +143,8 @@ Future<T?> _showMaterialBottomSheet<T>(
     elevation: 0,
     isScrollControlled: true,
     backgroundColor: bottomSheetColor ??
-        sheetTheme?.modalBackgroundColor ??
-        sheetTheme?.backgroundColor,
+        sheetTheme.modalBackgroundColor ??
+        sheetTheme.backgroundColor,
     barrierColor: barrierColor,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
