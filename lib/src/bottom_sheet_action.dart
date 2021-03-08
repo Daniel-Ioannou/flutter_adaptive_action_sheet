@@ -16,16 +16,16 @@ class BottomSheetAction {
   /// A widget to display after the title.
   ///
   /// Typically an [Icon] widget.
-  final Widget trailing;
+  final Widget? trailing;
 
   /// A widget to display before the title.
   ///
   /// Typically an [Icon] or a [CircleAvatar] widget.
-  final Widget leading;
+  final Widget? leading;
 
   BottomSheetAction({
-    @required this.title,
-    @required this.onPressed,
+    required this.title,
+    required this.onPressed,
     this.trailing,
     this.leading,
   })  : assert(title != null),

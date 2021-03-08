@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 showAdaptiveActionSheet(
                   context: context,
@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: const Text('Show action sheet'),
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 showAdaptiveActionSheet(
                   context: context,
@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: const Text('Show action sheet with title'),
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 showAdaptiveActionSheet(
                   context: context,

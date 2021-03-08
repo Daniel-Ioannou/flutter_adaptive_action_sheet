@@ -16,13 +16,13 @@ import 'cancel_action.dart';
 ///
 /// The optional [backgroundColor] and [barrierColor] can be passed in to
 /// customize the appearance and behavior of persistent bottom sheets.
-Future<T> showAdaptiveActionSheet<T>({
-  @required BuildContext context,
-  Widget title,
-  @required List<BottomSheetAction> actions,
-  CancelAction cancelAction,
-  Color barrierColor,
-  Color bottomSheetColor,
+Future<T?> showAdaptiveActionSheet<T>({
+  required BuildContext context,
+  Widget? title,
+  required List<BottomSheetAction> actions,
+  CancelAction? cancelAction,
+  Color? barrierColor,
+  Color? bottomSheetColor,
 }) async {
   assert(context != null);
   assert(actions != null);
@@ -41,13 +41,13 @@ Future<T> showAdaptiveActionSheet<T>({
   );
 }
 
-Future<T> _show<T>(
+Future<T?> _show<T>(
   BuildContext context,
-  Widget title,
+  Widget? title,
   List<BottomSheetAction> actions,
-  CancelAction cancelAction,
-  Color barrierColor,
-  Color bottomSheetColor,
+  CancelAction? cancelAction,
+  Color? barrierColor,
+  Color? bottomSheetColor,
 ) {
   if (Platform.isIOS) {
     return _showCupertinoBottomSheet(
@@ -68,20 +68,20 @@ Future<T> _show<T>(
   }
 }
 
-Future<T> _showCupertinoBottomSheet<T>(
+Future<T?> _showCupertinoBottomSheet<T>(
   BuildContext context,
-  Widget title,
+  Widget? title,
   List<BottomSheetAction> actions,
-  CancelAction cancelAction,
+  CancelAction? cancelAction,
 ) {
-  final defaultTextStyle = Theme.of(context).textTheme.headline6;
+  final defaultTextStyle =
+      Theme.of(context).textTheme.headline6 ?? const TextStyle(fontSize: 20);
   return showCupertinoModalPopup(
     context: context,
     builder: (BuildContext coxt) {
       return CupertinoActionSheet(
         title: title,
         actions: actions.map((action) {
-          // ListTile(title: ,)
           /// Modal Popup doesn't inherited material widget
           /// so need to provide one in case trailing or
           /// leading widget require a Material widget ancestor.
@@ -92,7 +92,7 @@ Future<T> _showCupertinoBottomSheet<T>(
               child: Row(
                 children: [
                   if (action.leading != null) ...[
-                    action.leading,
+                    action.leading!,
                     const SizedBox(width: 15),
                   ],
                   Expanded(
@@ -106,7 +106,7 @@ Future<T> _showCupertinoBottomSheet<T>(
                   ),
                   if (action.trailing != null) ...[
                     const SizedBox(width: 10),
-                    action.trailing,
+                    action.trailing!,
                   ],
                 ],
               ),
@@ -129,17 +129,17 @@ Future<T> _showCupertinoBottomSheet<T>(
   );
 }
 
-Future<T> _showMaterialBottomSheet<T>(
+Future<T?> _showMaterialBottomSheet<T>(
   BuildContext context,
-  Widget title,
+  Widget? title,
   List<BottomSheetAction> actions,
-  CancelAction cancelAction,
-  Color barrierColor,
-  Color bottomSheetColor,
+  CancelAction? cancelAction,
+  Color? barrierColor,
+  Color? bottomSheetColor,
 ) {
-  final defaultTextStyle = Theme.of(context).textTheme.headline6;
+  final defaultTextStyle =
+      Theme.of(context).textTheme.headline6 ?? const TextStyle(fontSize: 20);
   final BottomSheetThemeData sheetTheme = Theme.of(context).bottomSheetTheme;
-
   return showModalBottomSheet<T>(
     context: context,
     elevation: 0,
@@ -179,7 +179,7 @@ Future<T> _showMaterialBottomSheet<T>(
                     child: Row(
                       children: [
                         if (action.leading != null) ...[
-                          action.leading,
+                          action.leading!,
                           const SizedBox(width: 15),
                         ],
                         Expanded(
@@ -193,7 +193,7 @@ Future<T> _showMaterialBottomSheet<T>(
                         ),
                         if (action.trailing != null) ...[
                           const SizedBox(width: 10),
-                          action.trailing,
+                          action.trailing!,
                         ],
                       ],
                     ),
