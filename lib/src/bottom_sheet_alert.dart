@@ -153,7 +153,7 @@ Future<T?> _showMaterialBottomSheet<T>(
         sheetTheme.modalBackgroundColor ??
         sheetTheme.backgroundColor,
     barrierColor: barrierColor,
-    shape: const RoundedRectangleBorder(
+    shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(androidBorderRadius ?? 30),
         topRight: Radius.circular(androidBorderRadius ?? 30),
