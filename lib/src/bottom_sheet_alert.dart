@@ -14,6 +14,8 @@ import 'cancel_action.dart';
 ///
 /// [title] The optional title widget that show above the actions.
 ///
+/// [androidBorderRadius] The android border radius.
+///
 /// The optional [backgroundColor] and [barrierColor] can be passed in to
 /// customize the appearance and behavior of persistent bottom sheets.
 Future<T?> showAdaptiveActionSheet<T>({
@@ -23,6 +25,7 @@ Future<T?> showAdaptiveActionSheet<T>({
   CancelAction? cancelAction,
   Color? barrierColor,
   Color? bottomSheetColor,
+  double? androidBorderRadius,
 }) async {
   assert(
     barrierColor != Colors.transparent,
@@ -36,6 +39,7 @@ Future<T?> showAdaptiveActionSheet<T>({
     cancelAction,
     barrierColor,
     bottomSheetColor,
+    androidBorderRadius,
   );
 }
 
@@ -46,6 +50,7 @@ Future<T?> _show<T>(
   CancelAction? cancelAction,
   Color? barrierColor,
   Color? bottomSheetColor,
+  double? androidBorderRadius,
 ) {
   if (Platform.isIOS) {
     return _showCupertinoBottomSheet(
@@ -62,6 +67,7 @@ Future<T?> _show<T>(
       cancelAction,
       barrierColor,
       bottomSheetColor,
+      androidBorderRadius,
     );
   }
 }
@@ -134,6 +140,7 @@ Future<T?> _showMaterialBottomSheet<T>(
   CancelAction? cancelAction,
   Color? barrierColor,
   Color? bottomSheetColor,
+  double? androidBorderRadius,
 ) {
   final defaultTextStyle =
       Theme.of(context).textTheme.headline6 ?? const TextStyle(fontSize: 20);
@@ -146,10 +153,10 @@ Future<T?> _showMaterialBottomSheet<T>(
         sheetTheme.modalBackgroundColor ??
         sheetTheme.backgroundColor,
     barrierColor: barrierColor,
-    shape: const RoundedRectangleBorder(
+    shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(30),
-        topRight: Radius.circular(30),
+        topLeft: Radius.circular(androidBorderRadius ?? 30),
+        topRight: Radius.circular(androidBorderRadius ?? 30),
       ),
     ),
     builder: (BuildContext coxt) {
