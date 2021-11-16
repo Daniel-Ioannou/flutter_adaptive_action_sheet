@@ -11,10 +11,10 @@ environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
-  flutter:
-    sdk: flutter
   adaptive_action_sheet:
     path: ../
+  flutter:
+    sdk: flutter
 
 
 dev_dependencies:

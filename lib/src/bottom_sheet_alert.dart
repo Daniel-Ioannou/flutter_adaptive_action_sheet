@@ -18,6 +18,9 @@ import 'cancel_action.dart';
 ///
 /// The optional [backgroundColor] and [barrierColor] can be passed in to
 /// customize the appearance and behavior of persistent bottom sheets.
+///
+/// The optional [isDismissible] can be passed to set barrierDismissible of showCupertinoModalPopup
+/// and isDismissible of showModalBottomSheet (Default true as for both implementations)
 Future<T?> showAdaptiveActionSheet<T>({
   required BuildContext context,
   Widget? title,
@@ -26,6 +29,7 @@ Future<T?> showAdaptiveActionSheet<T>({
   Color? barrierColor,
   Color? bottomSheetColor,
   double? androidBorderRadius,
+  bool isDismissible = true,
 }) async {
   assert(
     barrierColor != Colors.transparent,
@@ -40,6 +44,7 @@ Future<T?> showAdaptiveActionSheet<T>({
     barrierColor,
     bottomSheetColor,
     androidBorderRadius,
+    isDismissible: isDismissible,
   );
 }
 
@@ -50,14 +55,16 @@ Future<T?> _show<T>(
   CancelAction? cancelAction,
   Color? barrierColor,
   Color? bottomSheetColor,
-  double? androidBorderRadius,
-) {
+  double? androidBorderRadius, {
+  bool isDismissible = true,
+}) {
   if (Platform.isIOS) {
     return _showCupertinoBottomSheet(
       context,
       title,
       actions,
       cancelAction,
+      isDismissible: isDismissible,
     );
   } else {
     return _showMaterialBottomSheet(
@@ -68,6 +75,7 @@ Future<T?> _show<T>(
       barrierColor,
       bottomSheetColor,
       androidBorderRadius,
+      isDismissible: isDismissible,
     );
   }
 }
@@ -76,12 +84,13 @@ Future<T?> _showCupertinoBottomSheet<T>(
   BuildContext context,
   Widget? title,
   List<BottomSheetAction> actions,
-  CancelAction? cancelAction,
-) {
-  final defaultTextStyle =
-      Theme.of(context).textTheme.headline6 ?? const TextStyle(fontSize: 20);
+  CancelAction? cancelAction, {
+  bool isDismissible = true,
+}) {
+  final defaultTextStyle = Theme.of(context).textTheme.headline6 ?? const TextStyle(fontSize: 20);
   return showCupertinoModalPopup(
     context: context,
+    barrierDismissible: isDismissible,
     builder: (BuildContext coxt) {
       return CupertinoActionSheet(
         title: title,
@@ -102,9 +111,7 @@ Future<T?> _showCupertinoBottomSheet<T>(
                   Expanded(
                     child: DefaultTextStyle(
                       style: defaultTextStyle,
-                      textAlign: action.leading != null
-                          ? TextAlign.start
-                          : TextAlign.center,
+                      textAlign: action.leading != null ? TextAlign.start : TextAlign.center,
                       child: action.title,
                     ),
                   ),
@@ -119,8 +126,7 @@ Future<T?> _showCupertinoBottomSheet<T>(
         }).toList(),
         cancelButton: cancelAction != null
             ? CupertinoActionSheetAction(
-                onPressed:
-                    cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
+                onPressed: cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
                 child: DefaultTextStyle(
                   style: defaultTextStyle.copyWith(color: Colors.lightBlue),
                   textAlign: TextAlign.center,
@@ -140,18 +146,17 @@ Future<T?> _showMaterialBottomSheet<T>(
   CancelAction? cancelAction,
   Color? barrierColor,
   Color? bottomSheetColor,
-  double? androidBorderRadius,
-) {
-  final defaultTextStyle =
-      Theme.of(context).textTheme.headline6 ?? const TextStyle(fontSize: 20);
+  double? androidBorderRadius, {
+  bool isDismissible = true,
+}) {
+  final defaultTextStyle = Theme.of(context).textTheme.headline6 ?? const TextStyle(fontSize: 20);
   final BottomSheetThemeData sheetTheme = Theme.of(context).bottomSheetTheme;
   return showModalBottomSheet<T>(
     context: context,
     elevation: 0,
+    isDismissible: isDismissible,
     isScrollControlled: true,
-    backgroundColor: bottomSheetColor ??
-        sheetTheme.modalBackgroundColor ??
-        sheetTheme.backgroundColor,
+    backgroundColor: bottomSheetColor ?? sheetTheme.modalBackgroundColor ?? sheetTheme.backgroundColor,
     barrierColor: barrierColor,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
@@ -190,9 +195,7 @@ Future<T?> _showMaterialBottomSheet<T>(
                         Expanded(
                           child: DefaultTextStyle(
                             style: defaultTextStyle,
-                            textAlign: action.leading != null
-                                ? TextAlign.start
-                                : TextAlign.center,
+                            textAlign: action.leading != null ? TextAlign.start : TextAlign.center,
                             child: action.title,
                           ),
                         ),
@@ -207,14 +210,12 @@ Future<T?> _showMaterialBottomSheet<T>(
               }).toList(),
               if (cancelAction != null)
                 InkWell(
-                  onTap:
-                      cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
+                  onTap: cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
                   child: Center(
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: DefaultTextStyle(
-                        style:
-                            defaultTextStyle.copyWith(color: Colors.lightBlue),
+                        style: defaultTextStyle.copyWith(color: Colors.lightBlue),
                         textAlign: TextAlign.center,
                         child: cancelAction.title,
                       ),
