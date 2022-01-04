@@ -1,3 +1,24 @@
+## [2.0.1] - 04 Jan 2022
+
+* Add `isDismissible` parameter that specifies whether the bottom sheet will be dismissed when user taps outside of the bottom sheet.
+  ```Dart
+  showAdaptiveActionSheet(
+    context: context,
+    isDismissible: false,
+    actions: <BottomSheetAction>[
+      BottomSheetAction(
+        title: const Text('Item 1'),
+        onPressed: () {},
+      ),
+      BottomSheetAction(
+        title: const Text('Item 2'),
+        onPressed: () {},
+      ),  
+    ],
+    cancelAction: CancelAction(title: 'Cancel'),
+  );
+  ```
+
 ## [2.0.0] - 08 Mar 2021
 
 * Migrated to null safety
