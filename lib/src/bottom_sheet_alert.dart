@@ -87,7 +87,8 @@ Future<T?> _showCupertinoBottomSheet<T>(
   CancelAction? cancelAction, {
   bool isDismissible = true,
 }) {
-  final defaultTextStyle = Theme.of(context).textTheme.headline6 ?? const TextStyle(fontSize: 20);
+  final defaultTextStyle =
+      Theme.of(context).textTheme.headline6 ?? const TextStyle(fontSize: 20);
   return showCupertinoModalPopup(
     context: context,
     barrierDismissible: isDismissible,
@@ -111,7 +112,9 @@ Future<T?> _showCupertinoBottomSheet<T>(
                   Expanded(
                     child: DefaultTextStyle(
                       style: defaultTextStyle,
-                      textAlign: action.leading != null ? TextAlign.start : TextAlign.center,
+                      textAlign: action.leading != null
+                          ? TextAlign.start
+                          : TextAlign.center,
                       child: action.title,
                     ),
                   ),
@@ -126,7 +129,8 @@ Future<T?> _showCupertinoBottomSheet<T>(
         }).toList(),
         cancelButton: cancelAction != null
             ? CupertinoActionSheetAction(
-                onPressed: cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
+                onPressed:
+                    cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
                 child: DefaultTextStyle(
                   style: defaultTextStyle.copyWith(color: Colors.lightBlue),
                   textAlign: TextAlign.center,
@@ -149,14 +153,18 @@ Future<T?> _showMaterialBottomSheet<T>(
   double? androidBorderRadius, {
   bool isDismissible = true,
 }) {
-  final defaultTextStyle = Theme.of(context).textTheme.headline6 ?? const TextStyle(fontSize: 20);
+  final defaultTextStyle =
+      Theme.of(context).textTheme.headline6 ?? const TextStyle(fontSize: 20);
   final BottomSheetThemeData sheetTheme = Theme.of(context).bottomSheetTheme;
   return showModalBottomSheet<T>(
     context: context,
     elevation: 0,
     isDismissible: isDismissible,
+    enableDrag: isDismissible,
     isScrollControlled: true,
-    backgroundColor: bottomSheetColor ?? sheetTheme.modalBackgroundColor ?? sheetTheme.backgroundColor,
+    backgroundColor: bottomSheetColor ??
+        sheetTheme.modalBackgroundColor ??
+        sheetTheme.backgroundColor,
     barrierColor: barrierColor,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
@@ -197,7 +205,9 @@ Future<T?> _showMaterialBottomSheet<T>(
                           Expanded(
                             child: DefaultTextStyle(
                               style: defaultTextStyle,
-                              textAlign: action.leading != null ? TextAlign.start : TextAlign.center,
+                              textAlign: action.leading != null
+                                  ? TextAlign.start
+                                  : TextAlign.center,
                               child: action.title,
                             ),
                           ),
@@ -212,12 +222,14 @@ Future<T?> _showMaterialBottomSheet<T>(
                 }).toList(),
                 if (cancelAction != null)
                   InkWell(
-                    onTap: cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
+                    onTap: cancelAction.onPressed ??
+                        () => Navigator.of(coxt).pop(),
                     child: Center(
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: DefaultTextStyle(
-                          style: defaultTextStyle.copyWith(color: Colors.lightBlue),
+                          style: defaultTextStyle.copyWith(
+                              color: Colors.lightBlue),
                           textAlign: TextAlign.center,
                           child: cancelAction.title,
                         ),
