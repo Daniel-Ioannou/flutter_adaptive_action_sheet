@@ -13,7 +13,7 @@ A action bottom sheet that adapts to the platform (Android/iOS).
 Add the package to your pubspec.yaml:
 
 ```yaml
-adaptive_action_sheet: ^2.0.0
+adaptive_action_sheet: ^2.0.1
 ```
 
 In your dart file, import the library:
@@ -46,6 +46,7 @@ showAdaptiveActionSheet(
 - `cancelAction`: The optional cancel button that show under the actions (grouped separately on iOS).
 - `title`: The optional title widget that show above the actions.
 - `androidBorderRadius`: The android border radius (default: 30).
+- `isDismissible`: Specifies whether the bottom sheet will be dismissed when user taps outside of the bottom sheet. It is `true` by default and cannot be `null`.
 - The optional `backgroundColor` and `barrierColor` can be passed in to customize the appearance and behavior of persistent material bottom sheets(Android only).
 
 #### BottomSheetAction:
