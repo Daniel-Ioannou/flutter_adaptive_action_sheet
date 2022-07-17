@@ -229,7 +229,8 @@ Future<T?> _showMaterialBottomSheet<T>(
                         padding: const EdgeInsets.all(16.0),
                         child: DefaultTextStyle(
                           style: defaultTextStyle.copyWith(
-                              color: Colors.lightBlue),
+                            color: Colors.lightBlue,
+                          ),
                           textAlign: TextAlign.center,
                           child: cancelAction.title,
                         ),
