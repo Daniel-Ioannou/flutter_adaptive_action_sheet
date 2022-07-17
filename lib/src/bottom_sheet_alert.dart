@@ -129,8 +129,13 @@ Future<T?> _showCupertinoBottomSheet<T>(
         }).toList(),
         cancelButton: cancelAction != null
             ? CupertinoActionSheetAction(
-                onPressed:
-                    cancelAction.onPressed ?? () => Navigator.of(coxt).pop(),
+                onPressed: () {
+                  if (cancelAction.onPressed != null) {
+                    cancelAction.onPressed!(coxt);
+                  } else {
+                    Navigator.of(coxt).pop();
+                  }
+                },
                 child: DefaultTextStyle(
                   style: defaultTextStyle.copyWith(color: Colors.lightBlue),
                   textAlign: TextAlign.center,
@@ -222,14 +227,20 @@ Future<T?> _showMaterialBottomSheet<T>(
                 }).toList(),
                 if (cancelAction != null)
                   InkWell(
-                    onTap: cancelAction.onPressed ??
-                        () => Navigator.of(coxt).pop(),
+                    onTap: () {
+                      if (cancelAction.onPressed != null) {
+                        cancelAction.onPressed!(coxt);
+                      } else {
+                        Navigator.of(coxt).pop();
+                      }
+                    },
                     child: Center(
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: DefaultTextStyle(
                           style: defaultTextStyle.copyWith(
-                              color: Colors.lightBlue),
+                            color: Colors.lightBlue,
+                          ),
                           textAlign: TextAlign.center,
                           child: cancelAction.title,
                         ),

@@ -13,7 +13,7 @@ A action bottom sheet that adapts to the platform (Android/iOS).
 Add the package to your pubspec.yaml:
 
 ```yaml
-adaptive_action_sheet: ^2.0.1
+adaptive_action_sheet: ^2.0.2
 ```
 
 In your dart file, import the library:
@@ -30,9 +30,9 @@ showAdaptiveActionSheet(
  title: const Text('Title'),
  androidBorderRadius: 30,
  actions: <BottomSheetAction>[
-    BottomSheetAction(title: const Text('Item 1'), onPressed: () {}),
-    BottomSheetAction(title: const Text('Item 2'), onPressed: () {}),
-    BottomSheetAction(title: const Text('Item 3'), onPressed: () {}),
+    BottomSheetAction(title: const Text('Item 1'), onPressed: (context) {}),
+    BottomSheetAction(title: const Text('Item 2'), onPressed: (context) {}),
+    BottomSheetAction(title: const Text('Item 3'), onPressed: (context) {}),
  ],
  cancelAction: CancelAction(title: const Text('Cancel')),// onPressed parameter is optional by default will dismiss the ActionSheet
 );
