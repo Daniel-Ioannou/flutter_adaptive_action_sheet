@@ -13,7 +13,7 @@ class CancelAction {
 
   /// The callback that is called when the action item is tapped.
   /// [onPressed] is optional by default will dismiss the Action Sheet.
-  final VoidCallback? onPressed;
+  final void Function(BuildContext context)? onPressed;
 
   /// The TextStyle to use for the title text. (optional)
   final TextStyle? textStyle;
