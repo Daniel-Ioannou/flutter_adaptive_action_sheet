@@ -45,15 +45,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   actions: <BottomSheetAction>[
                     BottomSheetAction(
                       title: const Text('Item 1'),
-                      onPressed: () {},
+                      onPressed: (_) {},
                     ),
                     BottomSheetAction(
                       title: const Text('Item 2'),
-                      onPressed: () {},
+                      onPressed: (_) {},
                     ),
                     BottomSheetAction(
                       title: const Text('Item 3'),
-                      onPressed: () {},
+                      onPressed: (_) {},
                     ),
                   ],
                   cancelAction: CancelAction(title: const Text('Cancel')),
@@ -69,15 +69,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   actions: <BottomSheetAction>[
                     BottomSheetAction(
                       title: const Text('Item 1'),
-                      onPressed: () {},
+                      onPressed: (_) {},
                     ),
                     BottomSheetAction(
                       title: const Text('Item 2'),
-                      onPressed: () {},
+                      onPressed: (_) {},
                     ),
                     BottomSheetAction(
                       title: const Text('Item 3'),
-                      onPressed: () {},
+                      onPressed: (_) {},
                     ),
                   ],
                   cancelAction: CancelAction(title: const Text('Cancel')),
@@ -98,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: (_) {},
                       leading: const Icon(Icons.add, size: 25),
                     ),
                     BottomSheetAction(
@@ -110,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           color: Colors.red,
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: (_) {},
                       leading: const Icon(
                         Icons.delete,
                         size: 25,

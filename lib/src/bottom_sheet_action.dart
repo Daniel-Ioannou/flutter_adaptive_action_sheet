@@ -11,7 +11,7 @@ class BottomSheetAction {
   final Widget title;
 
   /// The callback that is called when the action item is tapped. (required)
-  final VoidCallback onPressed;
+  final void Function(BuildContext context) onPressed;
 
   /// A widget to display after the title.
   ///
