@@ -1,5 +1,19 @@
+## 2.0.2
+* Add context to 'onPressed' for BottomSheetAction.
+  ```Dart
+  showAdaptiveActionSheet(
+    context: context,
+    title: const Text('Title'),
+    actions: <BottomSheetAction>[
+    BottomSheetAction(title: const Text('Item 1'), onPressed: (context) {}),
+    BottomSheetAction(title: const Text('Item 2'), onPressed: (context) {}),
+    BottomSheetAction(title: const Text('Item 3'), onPressed: (context) {}),
+    ],
+    cancelAction: CancelAction(title: const Text('Cancel')),// onPressed parameter is optional by default will dismiss the ActionSheet
+  );
+  ```
+  
 ## 2.0.1
-
 * Add `isDismissible` parameter that specifies whether the bottom sheet will be dismissed when user taps outside of the bottom sheet.
   ```Dart
   showAdaptiveActionSheet(
