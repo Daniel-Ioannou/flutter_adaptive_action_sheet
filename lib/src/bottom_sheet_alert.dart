@@ -179,75 +179,77 @@ Future<T?> _showMaterialBottomSheet<T>(
     ),
     builder: (BuildContext coxt) {
       final double screenHeight = MediaQuery.of(context).size.height;
-      return WillPopScope(
-        onWillPop: () async => isDismissible,
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-            maxHeight: screenHeight - (screenHeight / 10),
-          ),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                if (title != null) ...[
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Center(child: title),
-                  ),
-                ],
-                ...actions.map<Widget>((action) {
-                  return InkWell(
-                    onTap: () => action.onPressed(coxt),
-                    child: Padding(
+      return SafeArea(
+        child: WillPopScope(
+          onWillPop: () async => isDismissible,
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: screenHeight - (screenHeight / 10),
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  if (title != null) ...[
+                    Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: Row(
-                        children: [
-                          if (action.leading != null) ...[
-                            action.leading!,
-                            const SizedBox(width: 15),
-                          ],
-                          Expanded(
-                            child: DefaultTextStyle(
-                              style: defaultTextStyle,
-                              textAlign: action.leading != null
-                                  ? TextAlign.start
-                                  : TextAlign.center,
-                              child: action.title,
-                            ),
-                          ),
-                          if (action.trailing != null) ...[
-                            const SizedBox(width: 10),
-                            action.trailing!,
-                          ],
-                        ],
-                      ),
+                      child: Center(child: title),
                     ),
-                  );
-                }).toList(),
-                if (cancelAction != null)
-                  InkWell(
-                    onTap: () {
-                      if (cancelAction.onPressed != null) {
-                        cancelAction.onPressed!(coxt);
-                      } else {
-                        Navigator.of(coxt).pop();
-                      }
-                    },
-                    child: Center(
+                  ],
+                  ...actions.map<Widget>((action) {
+                    return InkWell(
+                      onTap: () => action.onPressed(coxt),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child: DefaultTextStyle(
-                          style: defaultTextStyle.copyWith(
-                            color: Colors.lightBlue,
+                        child: Row(
+                          children: [
+                            if (action.leading != null) ...[
+                              action.leading!,
+                              const SizedBox(width: 15),
+                            ],
+                            Expanded(
+                              child: DefaultTextStyle(
+                                style: defaultTextStyle,
+                                textAlign: action.leading != null
+                                    ? TextAlign.start
+                                    : TextAlign.center,
+                                child: action.title,
+                              ),
+                            ),
+                            if (action.trailing != null) ...[
+                              const SizedBox(width: 10),
+                              action.trailing!,
+                            ],
+                          ],
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                  if (cancelAction != null)
+                    InkWell(
+                      onTap: () {
+                        if (cancelAction.onPressed != null) {
+                          cancelAction.onPressed!(coxt);
+                        } else {
+                          Navigator.of(coxt).pop();
+                        }
+                      },
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: DefaultTextStyle(
+                            style: defaultTextStyle.copyWith(
+                              color: Colors.lightBlue,
+                            ),
+                            textAlign: TextAlign.center,
+                            child: cancelAction.title,
                           ),
-                          textAlign: TextAlign.center,
-                          child: cancelAction.title,
                         ),
                       ),
                     ),
-                  ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
