@@ -13,7 +13,7 @@ A action bottom sheet that adapts to the platform (Android/iOS).
 Add the package to your pubspec.yaml:
 
 ```yaml
-adaptive_action_sheet: ^2.0.1
+adaptive_action_sheet: ^2.0.3
 ```
 
 In your dart file, import the library:
@@ -30,9 +30,9 @@ showAdaptiveActionSheet(
  title: const Text('Title'),
  androidBorderRadius: 30,
  actions: <BottomSheetAction>[
-    BottomSheetAction(title: const Text('Item 1'), onPressed: () {}),
-    BottomSheetAction(title: const Text('Item 2'), onPressed: () {}),
-    BottomSheetAction(title: const Text('Item 3'), onPressed: () {}),
+    BottomSheetAction(title: const Text('Item 1'), onPressed: (context) {}),
+    BottomSheetAction(title: const Text('Item 2'), onPressed: (context) {}),
+    BottomSheetAction(title: const Text('Item 3'), onPressed: (context) {}),
  ],
  cancelAction: CancelAction(title: const Text('Cancel')),// onPressed parameter is optional by default will dismiss the ActionSheet
 );
@@ -47,6 +47,7 @@ showAdaptiveActionSheet(
 - `title`: The optional title widget that show above the actions.
 - `androidBorderRadius`: The android border radius (default: 30).
 - `isDismissible`: Specifies whether the bottom sheet will be dismissed when user taps outside of the bottom sheet. It is `true` by default and cannot be `null`.
+- `useRootNavigator`: Can be passed to set `useRootNavigator` of `showCupertinoModalPopup` (Default true) and `useRootNavigator` of `showModalBottomSheet` (Default false)
 - The optional `backgroundColor` and `barrierColor` can be passed in to customize the appearance and behavior of persistent material bottom sheets(Android only).
 
 #### BottomSheetAction:
