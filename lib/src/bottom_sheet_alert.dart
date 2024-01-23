@@ -21,6 +21,9 @@ import 'cancel_action.dart';
 ///
 /// The optional [isDismissible] can be passed to set barrierDismissible of showCupertinoModalPopup
 /// and isDismissible of showModalBottomSheet (Default true as for both implementations)
+///
+/// The optional [useRootNavigator] can be passed to set useRootNavigator of showCupertinoModalPopup
+/// (Default true) and useRootNavigator of showModalBottomSheet (Default false)
 Future<T?> showAdaptiveActionSheet<T>({
   required BuildContext context,
   Widget? title,
@@ -30,6 +33,7 @@ Future<T?> showAdaptiveActionSheet<T>({
   Color? bottomSheetColor,
   double? androidBorderRadius,
   bool isDismissible = true,
+  bool? useRootNavigator,
 }) async {
   assert(
     barrierColor != Colors.transparent,
@@ -45,6 +49,7 @@ Future<T?> showAdaptiveActionSheet<T>({
     bottomSheetColor,
     androidBorderRadius,
     isDismissible: isDismissible,
+    useRootNavigator: useRootNavigator,
   );
 }
 
@@ -57,6 +62,7 @@ Future<T?> _show<T>(
   Color? bottomSheetColor,
   double? androidBorderRadius, {
   bool isDismissible = true,
+  bool? useRootNavigator,
 }) {
   if (Platform.isIOS) {
     return _showCupertinoBottomSheet(
@@ -65,6 +71,7 @@ Future<T?> _show<T>(
       actions,
       cancelAction,
       isDismissible: isDismissible,
+      useRootNavigator: useRootNavigator,
     );
   } else {
     return _showMaterialBottomSheet(
@@ -76,6 +83,7 @@ Future<T?> _show<T>(
       bottomSheetColor,
       androidBorderRadius,
       isDismissible: isDismissible,
+      useRootNavigator: useRootNavigator,
     );
   }
 }
@@ -86,12 +94,14 @@ Future<T?> _showCupertinoBottomSheet<T>(
   List<BottomSheetAction> actions,
   CancelAction? cancelAction, {
   bool isDismissible = true,
+  bool? useRootNavigator,
 }) {
   final defaultTextStyle =
       Theme.of(context).textTheme.headline6 ?? const TextStyle(fontSize: 20);
   return showCupertinoModalPopup(
     context: context,
     barrierDismissible: isDismissible,
+    useRootNavigator: useRootNavigator ?? true,
     builder: (BuildContext coxt) {
       return CupertinoActionSheet(
         title: title,
@@ -157,6 +167,7 @@ Future<T?> _showMaterialBottomSheet<T>(
   Color? bottomSheetColor,
   double? androidBorderRadius, {
   bool isDismissible = true,
+  bool? useRootNavigator,
 }) {
   final defaultTextStyle =
       Theme.of(context).textTheme.headline6 ?? const TextStyle(fontSize: 20);
@@ -177,6 +188,7 @@ Future<T?> _showMaterialBottomSheet<T>(
         topRight: Radius.circular(androidBorderRadius ?? 30),
       ),
     ),
+    useRootNavigator: useRootNavigator ?? false,
     builder: (BuildContext coxt) {
       final double screenHeight = MediaQuery.of(context).size.height;
       return SafeArea(
