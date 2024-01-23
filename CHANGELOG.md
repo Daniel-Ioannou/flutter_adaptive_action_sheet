@@ -1,3 +1,20 @@
+## 2.0.3
+* Add `useRootNavigator` parameter (optional) to set useRootNavigator of `showCupertinoModalPopup` (Default true) and useRootNavigator of `showModalBottomSheet` (Default false)
+  ```Dart
+  showAdaptiveActionSheet(
+    context: context,
+    title: const Text('Title'),
+    useRootNavigator: true,
+    actions: <BottomSheetAction>[
+      BottomSheetAction(title: const Text('Item 1'), onPressed: (context) {}),
+      BottomSheetAction(title: const Text('Item 2'), onPressed: (context) {}),
+      BottomSheetAction(title: const Text('Item 3'), onPressed: (context) {}),
+    ],
+    cancelAction: CancelAction(title: const Text('Cancel')),// onPressed parameter is optional by default will dismiss the ActionSheet
+  );
+  ```
+* Wrap the content of `showMaterialBottomSheet` with a SafeArea
+
 ## 2.0.2
 * Add context to 'onPressed' for BottomSheetAction.
   ```Dart
@@ -5,9 +22,9 @@
     context: context,
     title: const Text('Title'),
     actions: <BottomSheetAction>[
-    BottomSheetAction(title: const Text('Item 1'), onPressed: (context) {}),
-    BottomSheetAction(title: const Text('Item 2'), onPressed: (context) {}),
-    BottomSheetAction(title: const Text('Item 3'), onPressed: (context) {}),
+      BottomSheetAction(title: const Text('Item 1'), onPressed: (context) {}),
+      BottomSheetAction(title: const Text('Item 2'), onPressed: (context) {}),
+      BottomSheetAction(title: const Text('Item 3'), onPressed: (context) {}),
     ],
     cancelAction: CancelAction(title: const Text('Cancel')),// onPressed parameter is optional by default will dismiss the ActionSheet
   );
