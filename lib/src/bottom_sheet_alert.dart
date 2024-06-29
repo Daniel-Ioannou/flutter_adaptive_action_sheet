@@ -1,6 +1,7 @@
+import 'dart:io' show Platform;
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:universal_io/io.dart';
 
 import 'bottom_sheet_action.dart';
 import 'cancel_action.dart';
@@ -175,6 +176,7 @@ Future<T?> _showMaterialBottomSheet<T>(
   return showModalBottomSheet<T>(
     context: context,
     elevation: 0,
+    clipBehavior: Clip.antiAliasWithSaveLayer,
     isDismissible: isDismissible,
     enableDrag: isDismissible,
     isScrollControlled: true,
