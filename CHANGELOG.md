@@ -1,3 +1,8 @@
+## 2.0.4
+* Replace willpopscope with popscope
+* Fixed inkwell shown behind card in Android
+* Update dependencies
+
 ## 2.0.3
 * Add `useRootNavigator` parameter (optional) to set useRootNavigator of `showCupertinoModalPopup` (Default true) and useRootNavigator of `showModalBottomSheet` (Default false)
   ```Dart
