@@ -192,8 +192,8 @@ Future<T?> _showMaterialBottomSheet<T>(
     builder: (BuildContext coxt) {
       final double screenHeight = MediaQuery.of(context).size.height;
       return SafeArea(
-        child: WillPopScope(
-          onWillPop: () async => isDismissible,
+        child: PopScope(
+          canPop: isDismissible,
           child: ConstrainedBox(
             constraints: BoxConstraints(
               maxHeight: screenHeight - (screenHeight / 10),
