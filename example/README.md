@@ -13,7 +13,7 @@ A action bottom sheet that adapts to the platform (Android/iOS).
 Add the package to your pubspec.yaml:
 
 ```yaml
-adaptive_action_sheet: ^2.0.3
+adaptive_action_sheet: ^2.0.4
 ```
 
 In your dart file, import the library:
