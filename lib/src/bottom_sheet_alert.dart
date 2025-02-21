@@ -239,7 +239,7 @@ Future<T?> _showMaterialBottomSheet<T>(
                         ),
                       ),
                     );
-                  }).toList(),
+                  }),
                   if (cancelAction != null)
                     InkWell(
                       onTap: () {
