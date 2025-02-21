@@ -1,7 +1,7 @@
 name: adaptive_action_sheet
 description: A Flutter package for action bottom sheet that adapts to the platform (Android/iOS).
 
-version: 2.0.3
+version: 2.0.4
 homepage: https://github.com/Daniel-Ioannou
 repository: https://github.com/Daniel-Ioannou/flutter_adaptive_action_sheet
 
